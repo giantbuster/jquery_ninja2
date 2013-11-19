@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+	Jefferson Lam
+	11-19-13
+	jQuery : Dates Page
+
+	Assignment: 
+		1. Create a Ninja puzzle wherein the images below are allowed to be dragged up or below. Each slice of the image can be moved up or down.
+
+		2. Create another jQuery instance so that when each image slice is clicked, it will change to a different picture:
+-->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery : Ninja Puzzle 1</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="global.css">
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+	<!--jQuery-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+  		$(document).ready(function(){
+  			
+  			$(function() {
+		    	$( "#sortable" ).sortable();
+		    	$( "#sortable" ).disableSelection();
+		  	});
+
+  		});
+    </script>
+</head>
+<body>
+	<div class="container">
+	<ul id="sortable">
+		<li class="ninja"><img src="ninja1.png"></li>
+		<li class="ninja"><img src="ninja2.png"></li>
+		<li class="ninja"><img src="ninja3.png"></li>
+		<li class="ninja"><img src="ninja4.png"></li>
+		<li class="ninja"><img src="ninja5.png"></li>
+	</ul>
+	</div>
+</body>
+</html>
