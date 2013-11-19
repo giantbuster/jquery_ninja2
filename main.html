@@ -2,7 +2,7 @@
 <!--
 	Jefferson Lam
 	11-19-13
-	jQuery : Dates Page
+	jQuery : Ninja Puzzle 2
 
 	Assignment: 
 		1. Create a Ninja puzzle wherein the images below are allowed to be dragged up or below. Each slice of the image can be moved up or down.
@@ -12,7 +12,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>jQuery : Ninja Puzzle 1</title>
+	<title>jQuery : Ninja Puzzle 2</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	
@@ -31,17 +31,58 @@
 		    	$( "#sortable" ).disableSelection();
 		  	});
 
+  			$('.cat-ninja').hide();
+
+  			//Mouse Drag or Click Detection
+  			//Code from Stack Overflow
+  			//http://stackoverflow.com/questions/4127118/can-you-detect-dragging-in-jquery
+  			var isDragging = false;
+
+  			//Begin detecting when mouse button is clicked down
+			$(".ninja-slice").mousedown(function() {
+			    $(window).mousemove(function() {
+			    	//If mouse moves while clicked, mouse is being dragged
+			        isDragging = true;
+			        $(window).unbind("mousemove");
+			    });
+			//When mouse button is lifted, check if it was dragged or not
+			}).mouseup(function() {
+			    var wasDragging = isDragging;
+			    isDragging = false;
+			    $(window).unbind("mousemove");
+			    if (!wasDragging) { //If mouse was not dragging, do this
+			    	//my code
+			        $(this).children("img").eq(0).toggle();
+					$(this).children("img").eq(1).toggle();
+			    }
+			});
+
   		});
     </script>
 </head>
 <body>
 	<div class="container">
 	<ul id="sortable">
-		<li class="ninja"><img src="ninja1.png"></li>
-		<li class="ninja"><img src="ninja2.png"></li>
-		<li class="ninja"><img src="ninja3.png"></li>
-		<li class="ninja"><img src="ninja4.png"></li>
-		<li class="ninja"><img src="ninja5.png"></li>
+		<li class="ninja-slice">
+			<img src="ninja1.png">
+			<img src="catninja1.png" class="cat-ninja" >
+		</li>
+		<li class="ninja-slice">
+			<img src="ninja2.png">
+			<img src="catninja2.png" class="cat-ninja" >
+		</li>
+		<li class="ninja-slice">
+			<img src="ninja3.png">
+			<img src="catninja3.png" class="cat-ninja" >
+		</li>
+		<li class="ninja-slice">
+			<img src="ninja4.png">
+			<img src="catninja4.png" class="cat-ninja" >
+		</li>
+		<li class="ninja-slice">
+			<img src="ninja5.png">
+			<img src="catninja5.png" class="cat-ninja">
+		</li>
 	</ul>
 	</div>
 </body>
